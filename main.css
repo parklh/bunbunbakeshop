@@ -1,6 +1,6 @@
-html,
-body {
-	height:100%;
+html, body {
+	height: 100%;
+	margin: 0;
 }
 
 h1 {
@@ -11,27 +11,53 @@ h2 {
 
 }
 
-#container {
-
+p {
+	font-family: 'Roboto Slab', serif;
+	font-weight: 300;
+	font-size: 18px;
 }
 
-#nav {
-
-}
-
-.hero {
-	background-image: url("images/background.jpg");
-
-	/*edit this*/
-	height: 50%;
+#hero {
+	background-image: url("images/bg.png");
+	height: 100%;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	position: relative;
+}
+
+.container {
+	display: flex;
+	flex-flow: row wrap;
+	width: 1160px;
+	margin: 0 auto;
+}
+
+.nav a {
+	float:right;
+}
+
+li {
+	display: inline;
+	list-style-type: none;
+	 margin-left: 65px;
+}
+
+a {
+	font-family: 'Roboto Slab';
+	font-size: 18px;
+	font-weight: 400;
+	color: #000;
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	font-weight: 500;
+	color: #000;
+	text-decoration: none;
 }
 
 .header {
-
+	align-self: center;
 }
 
 .lead {
@@ -47,4 +73,21 @@ h2 {
 	font-weight: 300;
 	text-transform: lowercase;
 
+}
+
+.footer {
+	font-family: 'Roboto Slab', serif;
+	font-size:18px;
+	font-weight:300;
+	align-self: center;
+	height: 70px;
+	width: 100%;
+	margin:0;
+	background-color: #FFF;
+}
+
+@media all and (min-width: 800px) {
+  .nav     { flex: 3 0px; }
+  .header  { order: 1; } 
+  .footer  { order: 2; }
 }
