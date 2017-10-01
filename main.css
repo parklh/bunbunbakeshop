@@ -174,14 +174,49 @@ a.two:hover, a.two:active {
 	margin: 60px 0 0 0;
 }
 
-.thumbnail {
+.image {
 	width: 360px;
 	height: 360px;
+	position: relative;
 	margin: 0 30px 30px 0;
 }
 
-.thumbnail.right {
-	margin-right: 0;
+.image.right {
+	margin-right:0;
+}
+
+.overlay {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+  	bottom: 0;
+  	left: 0;
+  	right: 0;
+	opacity: 0;
+	transition: .5s ease;
+	background-color: white;
+}
+
+.image:hover .overlay {
+	opacity: 1;
+}
+
+.text {
+	font-family: 'Roboto Slab', serif;
+	font-weight:400;
+	font-size: 14px;
+	color:black;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+}
+
+.thumbnail {
+	width: 360px;
+	height: 360px;
 }
 
 .overview {
