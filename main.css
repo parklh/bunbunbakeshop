@@ -18,6 +18,12 @@ h2 {
 	margin-bottom:0;
 }
 
+h3 {
+	font-family: 'Roboto Slab', serif;
+	font-size: 18px;
+	font-weight: 400;
+}
+
 p {
 	font-family: 'Roboto Slab', serif;
 	font-weight: 300;
@@ -53,6 +59,11 @@ a.two:hover, a.two:active {
 	text-decoration: none;
 }
 
+.logo {
+	max-width: 100px;
+	height: auto;
+}
+
 #hero {
 	background-image: url("images/bg.png");
 	height: 100%;
@@ -73,13 +84,12 @@ a.two:hover, a.two:active {
 	display: flex;
 	margin-top: 30px;
 	width: 100%;
-
 }
 
 .navigation {
 	list-style: none;
 	display: inline-flex;
-	margin: 25px 0 0 0;
+	margin: 13px 0 0 0;
 	padding: 0;
 	width:497px;
 	justify-content: space-between;
@@ -115,15 +125,12 @@ a.two:hover, a.two:active {
 .border {
 	height: 10px;
 	border-bottom:1px solid white;
-	margin: 25px 30px 0 30px;
-	width: 450px;
+	margin: 15px 30px 0 30px;
+	width: 500px;
 }
 
-.border-black {
-	height: 10px;
+.border.black {
 	border-bottom:1px solid black;
-	margin: 25px 30px 0 30px;
-	width: 450px;
 }
 
 .headline {
@@ -172,6 +179,40 @@ a.two:hover, a.two:active {
 	margin-right: 0;
 }
 
+.overview {
+	margin-top: 60px;
+	display: flex;
+}
+
+.preview {
+	width:652px;
+	height:652px;
+}
+
+.description {
+	width:457px;
+	margin-left: 30px;
+}
+
+.price {
+	font-family: 'Roboto Slab', serif;
+	font-size: 24px;
+	font-weight: 400;
+}
+
+.border.long {
+	margin: 60px 0 60px 0;
+	width: 1140px;
+	border-bottom:1px solid black;
+
+}
+
+.border.short {
+	margin:	30px 0 30px 0;
+	width: 457px;
+	border-bottom:1px solid black;
+}
+
 .footer {
 	font-family: 'Roboto Slab', serif;
 	font-size:12px;
@@ -190,9 +231,8 @@ a.two:hover, a.two:active {
   .headline  { order: 2; } 
   .menu      { order: 3; } 
   .products  { order: 4; }
-  .product-image  { order: 5; }
-  .description   { order: 6; }
-  .border-long   { order: 7; }
-  .more      { order: 8; }
-  .footer    { order: 9; }
+  .overview  { order: 5; }
+  .border-long   { order: 6; }
+  .more      { order: 7; }
+  .footer    { order: 8; }
 }
