@@ -4,34 +4,53 @@ html, body {
 }
 
 h1 {
-
+	font-family: 'Roboto Slab', serif;
+	font-size: 40px;
+	font-weight: 400;
+	margin-top: 0;
+	margin-bottom: 10px;
 }
 
 h2 {
-
+	font-family: 'Montserrat', sans-serif;
+	font-size:14px;
+	font-weight: 500;
+	margin-bottom:0;
 }
 
 p {
 	font-family: 'Roboto Slab', serif;
 	font-weight: 300;
-	font-size: 18px;
+	font-size: 14px;
+	line-height:20px;
 }
 
-a {
+a.one {
 	font-family: 'Roboto Slab';
 	font-size: 18px;
-	font-weight: 400;
+	font-weight: 300;
+	color: #FFF;
+	text-decoration: none;
+}
+
+a.one:hover, a.one:active {
+	font-weight: 500;
+	color: #FFF;
+	text-decoration: none;
+}
+
+a.two {
+	font-family: 'Roboto Slab';
+	font-size: 14px;
+	font-weight: 300;
 	color: #000;
 	text-decoration: none;
 }
 
-a:hover, a:active {
+a.two:hover, a.two:active {
 	font-weight: 500;
 	color: #000;
 	text-decoration: none;
-}
-a span {
-	color:white;
 }
 
 #hero {
@@ -62,21 +81,34 @@ a span {
 	display: inline-flex;
 	margin: 25px 0 0 0;
 	padding: 0;
-	width: 556px;
+	width:497px;
 	justify-content: space-between;
 
 }
 
-.navigation a {
+.navigation a.one {
 	list-style-type: none;
 	font-size:16px;
 	color: #FFF;
 	text-decoration: none;
 }
 
-.navigation a:hover {
+.navigation a.one:hover {
 	font-weight:500;
 	color: #FFF;
+	text-decoration: none;
+}
+
+.navigation a.two {
+	list-style-type: none;
+	font-size:16px;
+	color: #000;
+	text-decoration: none;
+}
+
+.navigation a.two:hover {
+	font-weight:500;
+	color: #000;
 	text-decoration: none;
 }
 
@@ -84,7 +116,14 @@ a span {
 	height: 10px;
 	border-bottom:1px solid white;
 	margin: 25px 30px 0 30px;
-	width: 390px;
+	width: 450px;
+}
+
+.border-black {
+	height: 10px;
+	border-bottom:1px solid black;
+	margin: 25px 30px 0 30px;
+	width: 450px;
 }
 
 .headline {
@@ -109,9 +148,33 @@ a span {
 
 }
 
+.menu {
+	margin-top:60px;
+	width:566px;
+}
+
+.products {
+	list-style: none;
+	width: 1140px;
+	padding-left: 0;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 60px 0 0 0;
+}
+
+.thumbnail {
+	width: 360px;
+	height: 360px;
+	margin: 0 30px 30px 0;
+}
+
+.thumbnail.right {
+	margin-right: 0;
+}
+
 .footer {
 	font-family: 'Roboto Slab', serif;
-	font-size:14px;
+	font-size:12px;
 	line-height:50px;
 	font-weight:300;
 	height: 50px;
@@ -125,5 +188,7 @@ a span {
 @media all and (min-width: 800px) {
   .header    { order: 1; }
   .headline  { order: 2; } 
-  .footer    { order: 3; }
+  .menu      { order: 3; } 
+  .products  { order: 4; } 
+  .footer    { order: 5; }
 }
