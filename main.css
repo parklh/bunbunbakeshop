@@ -189,6 +189,10 @@ a.two:hover, a.two:active {
   .header    { order: 1; }
   .headline  { order: 2; } 
   .menu      { order: 3; } 
-  .products  { order: 4; } 
-  .footer    { order: 5; }
+  .products  { order: 4; }
+  .product-image  { order: 5; }
+  .description   { order: 6; }
+  .border-long   { order: 7; }
+  .more      { order: 8; }
+  .footer    { order: 9; }
 }
