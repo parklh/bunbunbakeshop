@@ -217,6 +217,7 @@ a.two:hover, a.two:active {
 .thumbnail {
 	width: 360px;
 	height: 360px;
+	object-fit: cover;
 }
 
 .overview {
@@ -227,6 +228,7 @@ a.two:hover, a.two:active {
 .preview {
 	width:652px;
 	height:652px;
+	object-fit: cover;
 }
 
 .description {
