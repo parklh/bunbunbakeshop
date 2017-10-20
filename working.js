@@ -78,13 +78,11 @@ function addCart() {
 */
 
 //DROPDOWN2 TRIGGER
-//document.getElementById("dropdown2").style.display = "none";
-//document.getElementById("moreDescription").style.display = "none";
+document.getElementById("flavors").style.display = "none";
 
 function showFlavors() {
   if (document.getElementById('flavors').style.display === "none") {
     document.getElementById('flavors').style.display = "block";
-    document.getElementById("moreDescription").style.display = "block";
   document.getElementById('bun1').src='https://images.freshop.com/00024126012808/7cc1c32a2c77ca8958d0004bb0ad3322_medium.png';
   }
 }
@@ -92,7 +90,6 @@ function showFlavors() {
 function hideFlavors() {
   if (document.getElementById('flavors').style.display === "block") {
     document.getElementById('flavors').style.display = "none";
-    document.getElementById('moreDescription').style.display = "none";
   document.getElementById('bun1').src='https://images.freshop.com/00221151000002/22fbd9158fed2d9ab85034c1fa06edcb_medium.png';
   for (var i=0; i < flavor.length; i++){
   flavor[i].checked = false;
@@ -118,6 +115,7 @@ document.getElementById('dropdown').onchange = function(){
       currentPrice = "$20.49";
       document.getElementById('price').innerHTML = "$20.49";
       hideFlavors();
+      break;
     case '12pack':
       currentPrice = "$41.88";
       document.getElementById('price').innerHTML = "$41.88";
