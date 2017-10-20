@@ -3,7 +3,6 @@
 	<head>
  		<link href="https://fonts.googleapis.com/css?family=Montserrat:700|Roboto+Slab:300,400,500" rel="stylesheet">
 		<link href="main.css" rel="stylesheet">
-		<script src="working.js"></script>
 
 		<title>bun bun bake shop</title>
 	</head>
@@ -19,18 +18,21 @@
 					<li><a class="two" href="menu.html">menu</a></li>
 					<li><a class="two" href="#">about</a></li>
 					<li><a class="two" href="#">contact</a></li>
-					<li><span id="quant">0</span><a class="two" href="#"><img src="images/basket-black.png"></a></li>
+					<li><span id="quant">0</span><a class="two" href="cart.html"><img src="images/basket-black.png"></a></li>
 				</ul>	
 			</div>
 			<div class="overview">
 				
 				<div class="product-image">
-					<img src="images/product1.jpg" class="preview">
+					<img id="main" src="images/product1.jpg" class="preview">
 				</div>
 				
 				<div class="description">
 					<h1 id="pageFlavor" data-flavor="og">Original Bun</h1>
 					<p class=largetext>Nothing beats the original. Our classic recipe, the one that started it all. Warm dough, our locally sourced cinnamon, topped with our housemade rich cream cheese frosting.</p>
+						<div id="moreDescription">
+						<p class=largetext>Sweet, you're ordering a multi-pack! Get one flavor or mix it up and add two more!</p>	
+						</div>				
 					<H3>Quantity</H3>
 					<select id="dropdown">
 						<option value="">Please select</option>
@@ -73,8 +75,8 @@
 						</table>
 					</div>
 					<div class="border short"></div>
-					<span class="price">$3.29</span>
-					<button type="button" class="secondary">add to cart</button>
+					<span id="price" class="price">$0.00</span>
+					<button id="add" type="button" class="secondary">add to cart</button>
 				</div>
 			</div>	
 				
@@ -108,5 +110,6 @@
 		<div class="footer">
 		© 2017 Bun Bun Bake Shop
 		</div>
+		<script src="working.js"></script>
 	</body>
 </html>
