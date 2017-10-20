@@ -1,7 +1,7 @@
-if (window.location.href.match('cart.html') !=null) {
+/*if (window.location.href.match('cart.html') !=null) {
     localStorage.getItem('myOrder', JSON.stringify(order));
     return false;
-}
+}*/
 
 
 
@@ -75,7 +75,7 @@ function addCart() {
 //  this.items.splice(this.items.indexOf(item), 1);
 //}
 
-
+document.getElementById("flavors").style.display = "none";
 
 function showFlavors() {
   if (document.getElementById('flavors').style.display === "none") {
@@ -122,7 +122,8 @@ document.getElementById('dropdown').onchange = function(){
     case '12single':
       currentPrice = "$41.88";
       document.getElementById('price').innerHTML = "$41.88";
-      hideFlavors();     
+      hideFlavors();
+      break;     
     default:
       currentPrice = "$0.00";
       document.getElementById('price').innerHTML = "$0.00";
