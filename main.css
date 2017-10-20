@@ -3,6 +3,11 @@ html, body {
 	margin: 0;
 }
 
+body {
+	display: flex;
+	flex-direction: column;
+}
+
 h1 {
 	font-family: 'Roboto Slab', serif;
 	font-size: 40px;
@@ -80,9 +85,16 @@ a.two:hover, a.two:active {
 .container {
 	display: flex;
 	flex-flow: row wrap;
+	flex: 1 0 auto;
 	width: 1140px;
 	margin: 0 auto;
 	min-height: calc(100vh - 50px);
+}
+
+.cartContainer {
+	flex: 1 0 auto;
+	width: 1140px;
+	margin: 0 auto;
 }
 
 .header {
@@ -176,6 +188,11 @@ a.two:hover, a.two:active {
 }
 
 .menu {
+	margin-top:60px;
+	width:566px;
+}
+
+#cart {
 	margin-top:60px;
 	width:566px;
 }
