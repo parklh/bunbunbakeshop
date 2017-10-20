@@ -1,17 +1,19 @@
-/*if (window.location.href.match('cart.html') !=null) {
+if (window.location.href.match('cart.html') !=null) {
     localStorage.getItem('myOrder', JSON.stringify(order));
+    document.getElementById("yourOrder").innerHTML = "Price: " + order.price + " Amount: " + order.amount + ' Flavors: ' + order.flavors;
     return false;
-}*/
+}
 
 
 
 //Use something like this load on cart page, carries over localstorage, create a function
-var quant = 0;
+/*var quant = 0;
 document.getElementById("add").addEventListener("click",addCart);
 function addCart() {
   quant++;
   document.getElementById("quant").innerHTML = quant;
   localStorage.getItem('myOrder') 
+}*/
 
 //QUANTITY IN CART
 //add local storage stuffs
@@ -51,6 +53,8 @@ if (localStorage.getItem('myOrder')) {
 
 document.getElementById("add").addEventListener("click",addCart);
 function addCart() {
+  quant++;
+  document.getElementById("quant").innerHTML = quant;
   if (!document.getElementById('dropdown').value===""){
     order.flavors = [pageFlavor];
     order.price = currentPrice;
@@ -60,7 +64,6 @@ function addCart() {
         order.flavors.push(flavor[i].value);
       }
     }
-    document.getElementById("yourOrder").innerHTML = "Price: " + order.price + " Amount: " + order.amount + ' Flavors: ' + order.flavors;
     localStorage.setItem('myOrder', JSON.stringify(order)); //need a parameter here; for cart page
   }
 }
@@ -114,6 +117,7 @@ document.getElementById('dropdown').onchange = function(){
       currentPrice = "$20.49";
       document.getElementById('price').innerHTML = "$20.49";
       hideFlavors();
+      break;
     case '12pack':
       currentPrice = "$41.88";
       document.getElementById('price').innerHTML = "$41.88";
