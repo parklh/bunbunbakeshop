@@ -352,8 +352,45 @@ td {
 	width: 230px;
 }
 
+/*Cart styling*/
+#cart{
+	margin-top: 60px;
+}
+
 #yourOrder {
 	margin-top: 60px;
+}
+
+.cartCheckout {
+	display: inline-block;
+	width: 100%;
+	height: 50px;
+	padding-bottom:30px;
+}
+
+.inBasket{
+	margin-top: -42px;
+	margin-left: 30px;
+}
+
+.flavorChoice {
+	margin: 0;
+	float: left;
+}
+
+.orderPrice {
+	margin:0;
+	float: right;
+}
+
+#checkoutNow {
+	margin: 0 auto;
+	float: left;
+}
+
+#checkoutButton {
+	margin: 0 auto;
+	float: right;
 }
 
 

@@ -60,7 +60,7 @@ function updateCart() {
   if (order.length > 0) {
     for (var i=0; i < order.length; i++) {
       var orderHtml = document.createElement("div");
-      orderHtml.innerHTML = '<button id="close" onclick="removeFromCart()"></button><h3>' + order[i].amount + '</h3><p>' + order[i].flavors + '</p><p span class="orderPrice">' + order[i].price + '</p><div class="border long"></div>'
+      orderHtml.innerHTML = '<button id="close" onclick="removeFromCart()"></button><div class="inBasket"><h3>' + order[i].amount + '</h3><p span class="flavorChoice">' + order[i].flavors + '</p><p span class="orderPrice">' + order[i].price + '</p></div><div class="border long"></div>'
       document.getElementById('yourOrder').appendChild(orderHtml);
     }
   }
