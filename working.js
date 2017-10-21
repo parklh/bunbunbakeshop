@@ -1,7 +1,3 @@
-//REMOVE
-
-//CAROUSEL?
-
 //Limits amount of checkboxes user can click
 var flavor = document.getElementsByName('flavor');
 var limit = 0;
@@ -27,7 +23,7 @@ function updateCartAmount() {
   document.getElementById("cart").innerHTML = order.length;
 }
 
-//Establishes array that populates cart
+//Creates array that populates cart
 if (localStorage.getItem('myOrder')) {
   var order = JSON.parse(localStorage.getItem('myOrder'));
   updateCartAmount();
@@ -35,12 +31,12 @@ if (localStorage.getItem('myOrder')) {
   var order = [];
 }
 
-//Creates new order properties and pushes to Order array
+//Creates new order properties and pushes to order array
 function addCart() {
   if (document.getElementById('dropdown').value !== ""){
     var currentOrder = new Object();
     var pageFlavor = document.getElementById('pageFlavor').dataset.flavor;
-    currentOrder.flavors = [pageFlavor];
+    currentOrder.flavors= [pageFlavor]
     currentOrder.price = currentPrice;
     currentOrder.amount = document.getElementById('dropdown').value;
     for (var i=0; i < flavor.length; i++){
@@ -56,20 +52,19 @@ function addCart() {
 
 //Creates new div on cart page to display orders
 function updateCart() {
-  //order[i].flavors.join(' and ');
   if (order.length > 0) {
     for (var i=0; i < order.length; i++) {
       var orderHtml = document.createElement("div");
-      orderHtml.innerHTML = '<button id="close" onclick="removeFromCart()"></button><div class="inBasket"><h3>' + order[i].amount + '</h3><p span class="flavorChoice">' + order[i].flavors + '</p><p span class="orderPrice">' + order[i].price + '</p></div><div class="border long"></div>'
+      orderHtml.setAttribute('data-order-number', i);
+      orderHtml.innerHTML = '<button id="close" onclick="removeFromCart()"></button><div class="inBasket"><h3>' + order[i].amount + '</h3><p span class="flavorChoice">' + order[i].flavors.join(', ')  + '</p><p span class="orderPrice">' + order[i].price + '</p></div><div class="border long"></div>'
       document.getElementById('yourOrder').appendChild(orderHtml);
     }
   }
 }
 
-//Changes button and text on cart page
+//Changes cart text and button when cart is empty
 function checkout() {
-  //where am i fucking up here? :c (check cart.html)
-  if (order.length < 0) {
+  if (order.length == 0) {
     document.getElementById('checkoutNow').innerHTML = "Hungry for buns? Your cart sure is.";
     document.getElementById('checkoutButton').innerHTML = 'shop now';
   }
@@ -77,11 +72,11 @@ function checkout() {
 
 //Removes order
 function removeFromCart() {
-  //I understand i need to search through the array to find this instances location,
-  //I have no idea what that looks like...
-  //I looked at your suggestion, conceptually I get it, just can't apply
-  this.order.splice(order.indexOf(order),1)
+  var orderIndex = event.target.parentElement.dataset.orderNumber
+  order.splice(orderIndex, 1);
+  event.target.parentElement.parentNode.removeChild(event.target.parentElement);
   updateCartAmount();
+  localStorage.setItem('myOrder', JSON.stringify(order));
 }
 
 //Supports dropdownChange() function, exposes divs
