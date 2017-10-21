@@ -1,12 +1,3 @@
-//Use something like this load on cart page, carries over localstorage, create a function
-/*var quant = 0;
-document.getElementById("add").addEventListener("click",addCart);
-function addCart() {
-  quant++;
-  document.getElementById("quant").innerHTML = quant;
-  localStorage.getItem('myOrder') 
-}*/
-
 //QUANTITY IN CART
 //add local storage stuffs
 //REMOVE
@@ -17,7 +8,7 @@ function addCart() {
 //LIMIT CHECKBOXES
 var flavor = document.getElementsByName('flavors');
 var limit = 0;
-for (var i=0; i < flavors.length; i++){
+for (var i=0; i < flavor.length; i++){
 flavor[i].addEventListener('change', checkFlavor);
 }
 
@@ -33,38 +24,44 @@ function checkFlavor() {
   }
 }
 
-var currentPrice = "$0.00";
-var pageFlavor = document.getElementById('pageFlavor').dataset.flavor;
-function save(){
-  if (localStorage.getItem('myOrder')) {
-    var order = JSON.parse(localStorage.getItem('myOrder'));
-    document.getElementById("yourOrder").innerHTML = "Saved Price: " + order.price + " Amount: " + order.amount + ' Flavors: ' + order.flavors;
-  } else {
-    var order = new Object();
-    document.getElementById("yourOrder").innerHTML = "No Saved Order";
-  }
-}
-
 document.getElementById("add").addEventListener("click",addCart);
 function addCart() {
-  quant++;
-  document.getElementById("quant").innerHTML = quant;
   if (!document.getElementById('dropdown').value===""){
-    order.flavors = [pageFlavor];
-    order.price = currentPrice;
-    order.amount = document.getElementById('dropdown').value;
+    var currentOrder = new Object();
+    currentOrder.flavors = [pageFlavor];
+    currentOrder.price = currentPrice;
+    currentOrder.amount = document.getElementById('dropdown').value;
     for (var i=0; i < flavor.length; i++){
       if (flavor[i].checked) {
-        order.flavors.push(flavor[i].value);
+        currentOrder.flavors.push(flavor[i].value);
       }
     }
-    document.getElementById("yourOrder").innerHTML = "Price: " + order.price + " Amount: " + order.amount + ' Flavors: ' + order.flavors;
-    localStorage.setItem('myOrder', JSON.stringify(order)); //need a parameter here; for cart page
+    order.push(currentOrder);
+    updateCartAmount();
+    localStorage.setItem('myOrder', JSON.stringify(order));
   }
 }
 
-//CHANGE THE HTML ON CART PAGE
-//innerHTML = '<div class="product"><h1>' + someVariableForName + '</h1><p class="price">' + someVariableforPrice +'</p></div>'
+function updateCart() {
+  if (order.length > 0) {
+    for (var i=0; i < order.length; i++) {
+      var orderHtml = document.createElement('div');
+      orderHtml.innerHTML = '<h3>' + order[i].amount + '</h3><p>' + order[i].flavors + '</p><p>' + order[i].price + '</p>'
+      document.getElementById('yourOrder').appendChild(orderHtml);
+    }
+  }
+}
+
+function updateCartAmount() {
+  document.getElementById("cart").innerHTML = order.length;
+}
+
+if (localStorage.getItem('myOrder')) {
+  var order = JSON.parse(localStorage.getItem('myOrder'));
+  updateCartAmount();
+} else {
+  var order = [];
+}
 
 //REMOVE 
 //document.getElementById("delete-item").addEventListener("click", removeFromCart);
@@ -79,7 +76,7 @@ function showFlavors() {
   if (document.getElementById('flavors').style.display === "none") {
     document.getElementById('flavors').style.display = "block";
     document.getElementById("moreDescription").style.display = "block";
-  document.getElementById('main').src='images/product2.jpg';
+    document.getElementById('main').src='images/product2.jpg';
   }
 }
 
@@ -87,7 +84,7 @@ function hideFlavors() {
   if (document.getElementById('flavors').style.display === "block") {
     document.getElementById('flavors').style.display = "none";
     document.getElementById('moreDescription').style.display = "none";
-  document.getElementById('main').src='images/product2.jpg';
+    document.getElementById('main').src='images/product2.jpg';
   for (var i=0; i < flavor.length; i++){
   flavor[i].checked = false;
   }
