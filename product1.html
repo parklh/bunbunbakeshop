@@ -30,11 +30,11 @@
 				<div class="description">
 					<h1 id="pageFlavor" data-flavor="og">Original Bun</h1>
 					<p class=largetext>Nothing beats the original. Our classic recipe, the one that started it all. Warm dough, our locally sourced cinnamon, topped with our housemade rich cream cheese frosting.</p>
-						<div id="moreDescription">
+						<div id="moreDescription" style="display:none">
 						<p class=largetext>Sweet, you're ordering a multi-pack! Mix it up and add two more flavors!</p>	
 						</div>				
 					<H3>Quantity</H3>
-					<select id="dropdown">
+					<select id="dropdown" onchange="dropdownChange()"">
 						<option value="">Please select</option>
 						<option value="single">Single</option>
 						<option value="6single">6-pack, Single</option>
@@ -42,7 +42,7 @@
 						<option value="12single">12-pack, Single</option>
 						<option value="12pack">12-pack</option>
 					</select>
-					<div id="flavors">
+					<div id="flavors" style="display:none">
 						<table>
 							<tr>
 								<td><input class="type" type="checkbox" name="flavor" value="ogBunGF">Original Bun (Gluten Free)</td>
@@ -76,7 +76,7 @@
 					</div>
 					<div class="border short"></div>
 					<span id="price" class="price">$0.00</span>
-					<button id="add" type="button" class="secondary">add to cart</button>
+					<button id="add" type="button" class="secondary" onclick="addCart()">add to cart</button>
 				</div>
 			</div>	
 				

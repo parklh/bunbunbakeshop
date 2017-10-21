@@ -4,13 +4,13 @@
 
 //CAROUSEL?
 
-
 //LIMIT CHECKBOXES
-var flavor = document.getElementsByName('flavors');
+var flavor = document.getElementsByName('flavor');
 var limit = 0;
-for (var i=0; i < flavor.length; i++){
-flavor[i].addEventListener('change', checkFlavor);
-}
+  for (var i=0; i < flavor.length; i++){
+    flavor[i].addEventListener('change', checkFlavor);
+  }
+
 
 function checkFlavor() {
   if (this.checked) {
@@ -24,7 +24,17 @@ function checkFlavor() {
   }
 }
 
-document.getElementById("add").addEventListener("click",addCart);
+function updateCartAmount() {
+  document.getElementById("cart").innerHTML = order.length;
+}
+
+if (localStorage.getItem('myOrder')) {
+  var order = JSON.parse(localStorage.getItem('myOrder'));
+  updateCartAmount();
+} else {
+  var order = [];
+}
+
 function addCart() {
   if (!document.getElementById('dropdown').value===""){
     var currentOrder = new Object();
@@ -52,16 +62,6 @@ function updateCart() {
   }
 }
 
-function updateCartAmount() {
-  document.getElementById("cart").innerHTML = order.length;
-}
-
-if (localStorage.getItem('myOrder')) {
-  var order = JSON.parse(localStorage.getItem('myOrder'));
-  updateCartAmount();
-} else {
-  var order = [];
-}
 
 //REMOVE 
 //document.getElementById("delete-item").addEventListener("click", removeFromCart);
@@ -70,7 +70,8 @@ if (localStorage.getItem('myOrder')) {
 //  this.items.splice(this.items.indexOf(item), 1);
 //}
 
-document.getElementById("flavors").style.display = "none";
+//document.getElementById("flavors").style.display = "none";
+//document.getElementById("moreDescription").style.display = "none";
 
 function showFlavors() {
   if (document.getElementById('flavors').style.display === "none") {
@@ -87,13 +88,12 @@ function hideFlavors() {
     document.getElementById('main').src='images/product2.jpg';
   for (var i=0; i < flavor.length; i++){
   flavor[i].checked = false;
-  }
+    }
   }
 }
 
-
 //PRICE CHANGE
-document.getElementById('dropdown').onchange = function(){
+function dropdownChange() {
   switch(document.getElementById('dropdown').value) {
     case 'single':
       currentPrice = "$3.49";
@@ -125,5 +125,5 @@ document.getElementById('dropdown').onchange = function(){
       document.getElementById('price').innerHTML = "$0.00";
       hideFlavors();
       break;
-  }
  }
+} 
