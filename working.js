@@ -36,7 +36,7 @@ if (localStorage.getItem('myOrder')) {
 }
 
 function addCart() {
-  if (!document.getElementById('dropdown').value===""){
+  //if (!document.getElementById('dropdown').value===""){
     var currentOrder = new Object();
     currentOrder.flavors = [pageFlavor];
     currentOrder.price = currentPrice;
@@ -45,7 +45,7 @@ function addCart() {
       if (flavor[i].checked) {
         currentOrder.flavors.push(flavor[i].value);
       }
-    }
+    //}
     order.push(currentOrder);
     updateCartAmount();
     localStorage.setItem('myOrder', JSON.stringify(order));
