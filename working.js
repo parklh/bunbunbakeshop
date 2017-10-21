@@ -1,10 +1,8 @@
-//QUANTITY IN CART
-//add local storage stuffs
 //REMOVE
 
 //CAROUSEL?
 
-//LIMIT CHECKBOXES
+//Limits amount of checkboxes user can click
 var flavor = document.getElementsByName('flavor');
 var limit = 0;
   for (var i=0; i < flavor.length; i++){
@@ -24,10 +22,12 @@ function checkFlavor() {
   }
 }
 
+//Updates number next to cart icon
 function updateCartAmount() {
   document.getElementById("cart").innerHTML = order.length;
 }
 
+//Establishes array that populates cart
 if (localStorage.getItem('myOrder')) {
   var order = JSON.parse(localStorage.getItem('myOrder'));
   updateCartAmount();
@@ -35,6 +35,7 @@ if (localStorage.getItem('myOrder')) {
   var order = [];
 }
 
+//Creates new order properties and pushes to Order array
 function addCart() {
   if (document.getElementById('dropdown').value !== ""){
     var currentOrder = new Object();
@@ -53,70 +54,81 @@ function addCart() {
   }
 }
 
+//Creates new div on cart page to display orders
 function updateCart() {
+  //order[i].flavors.join(' and ');
   if (order.length > 0) {
     for (var i=0; i < order.length; i++) {
-      var orderHtml = document.createElement('div');
-      orderHtml.innerHTML = '<h3>' + order[i].amount + '</h3><p>' + order[i].flavors + '</p><p>' + order[i].price + '</p>'
+      var orderHtml = document.createElement("div");
+      orderHtml.innerHTML = '<button id="close" onclick="removeFromCart()"></button><h3>' + order[i].amount + '</h3><p>' + order[i].flavors + '</p><p span class="orderPrice">' + order[i].price + '</p><div class="border long"></div>'
       document.getElementById('yourOrder').appendChild(orderHtml);
     }
   }
 }
 
+//Changes button and text on cart page
+function checkout() {
+  //where am i fucking up here? :c (check cart.html)
+  if (order.length < 0) {
+    document.getElementById('checkoutNow').innerHTML = "Hungry for buns? Your cart sure is.";
+    document.getElementById('checkoutButton').innerHTML = 'shop now';
+  }
+}
 
-//REMOVE 
-//document.getElementById("delete-item").addEventListener("click", removeFromCart);
-//function removeFromCart() {
-//  item.quantity -= 1;
-//  this.items.splice(this.items.indexOf(item), 1);
-//}
+//Removes order
+function removeFromCart() {
+  //I understand i need to search through the array to find this instances location,
+  //I have no idea what that looks like...
+  //I looked at your suggestion, conceptually I get it, just can't apply
+  this.order.splice(order.indexOf(order),1)
+  updateCartAmount();
+}
 
-//document.getElementById("flavors").style.display = "none";
-//document.getElementById("moreDescription").style.display = "none";
-
+//Supports dropdownChange() function, exposes divs
 function showFlavors() {
   if (document.getElementById('flavors').style.display === "none") {
     document.getElementById('flavors').style.display = "block";
     document.getElementById("moreDescription").style.display = "block";
-    document.getElementById('main').src='images/product2.jpg';
+    document.getElementById('main').src='images/product1.jpg';
   }
 }
 
+//Supports dropdownChange() function, hides divs
 function hideFlavors() {
   if (document.getElementById('flavors').style.display === "block") {
     document.getElementById('flavors').style.display = "none";
     document.getElementById('moreDescription').style.display = "none";
-    document.getElementById('main').src='images/product2.jpg';
+    document.getElementById('main').src='images/product1.jpg';
   for (var i=0; i < flavor.length; i++){
   flavor[i].checked = false;
     }
   }
 }
 
-//PRICE CHANGE
+//Allows certain amount of data/options to appear to user when make specific selections
 function dropdownChange() {
   switch(document.getElementById('dropdown').value) {
-    case 'single':
+    case 'Single':
       currentPrice = "$3.49";
       document.getElementById('price').innerHTML = "$3.49";
       hideFlavors();
       break;
-    case '6pack':
+    case '6-pack':
       currentPrice = "$20.94";
       document.getElementById('price').innerHTML = "$20.94";
       showFlavors();
       break;
-    case '6single':
+    case '6-pack, Single':
       currentPrice = "$20.49";
       document.getElementById('price').innerHTML = "$20.49";
       hideFlavors();
       break;
-    case '12pack':
+    case '12-pack':
       currentPrice = "$41.88";
       document.getElementById('price').innerHTML = "$41.88";
       showFlavors();
       break;
-    case '12single':
+    case '12-pack, Single':
       currentPrice = "$41.88";
       document.getElementById('price').innerHTML = "$41.88";
       hideFlavors();

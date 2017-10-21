@@ -24,8 +24,10 @@
 			<div id="cart">
 				<h2>CHECKOUT</h2>
 				<h1>Your basket</h1>
+				<!-- Order array populates in this div -->
 				<div id="yourOrder"></div>
-				<div class="border long">
+				<div><p id="checkoutNow">Your order is looking mighty tasty.</p>
+				<button id="checkoutButton" type="button" class="secondary">checkout</button>
 				</div>
 			</div>
 		</div>
@@ -34,5 +36,5 @@
 		</div>
 		<script src="working.js"></script>
 	</body>
-	<script type="text/javascript">updateCart()</script>
+	<script type="text/javascript">updateCart(), checkout()</script>
 </html>
